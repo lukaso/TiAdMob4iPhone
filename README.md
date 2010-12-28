@@ -22,7 +22,10 @@ HOW TO USE IT
 	    adBackgroundColor: "#ffffff",
 	    primaryTextColor: "#000000",
 	    secondaryTextColor: "#000000",
-	    refresh: 30.0
+	    refresh: 30.0,
+			latitude: 51.0,
+			longitude: -0.180,
+			locationTime: new Date()
 	});
 	admob.addEventListener('error', function(error) {
 	    alert(error.message);
@@ -38,7 +41,7 @@ INSTALL TiAdMob4iPhone
 1. Open `Terminal`
 2. Run below command
 
-	`python build.py && unzip jp.masuidrive.ti.admob-0.1.zip -d /Library/Application\ Support/Titanium/`
+	`python build.py && unzip jp.masuidrive.ti.admob-iphone-0.1.zip -d /Library/Application\ Support/Titanium/`
 
 
 REGISTER TO YOUR PROJECT
