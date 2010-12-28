@@ -178,12 +178,12 @@
 
 -(void)setLatitude_:(id)latitude_
 {
-	self.latitude = [TiUtils floatValue:latitude_];
+	self.latitude = [TiUtils doubleValue:latitude_];
 }
 
 -(void)setLongitude_:(id)longitude_
 {
-	self.longitude = [TiUtils floatValue:longitude_];
+	self.longitude = [TiUtils doubleValue:longitude_];
 }
 
 -(void)setLocationTime_:(id)locationTime_
