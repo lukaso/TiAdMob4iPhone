@@ -15,7 +15,7 @@
 
 @implementation TiAdMobView
 @synthesize publisher, test, refresh, adBackgroundColor, primaryTextColor, secondaryTextColor;
-@synthesize refreshTimer, admob;
+@synthesize refreshTimer, admob, latitude, longitude, locationTime;
 
 #pragma mark Cleanup 
 
@@ -28,6 +28,8 @@
 	[refreshTimer invalidate];
 	self.refreshTimer = nil;
 	self.admob = nil;
+	self.locationTime = nil;
+	
 	[super dealloc];
 }
 
@@ -45,6 +47,9 @@
 	self.test = NO;
 	self.publisher = @"";
 	self.refresh = AD_REFRESH_PERIOD;
+	self.latitude = 0;
+	self.longitude = 0;
+	self.locationTime = nil;
 }
 
 -(void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
@@ -118,6 +123,17 @@
 	return color;
 }
 
+- (double)locationLatitude {
+	return self.latitude;
+}
+- (double)locationLongitude {
+	return self.longitude;
+}
+- (NSDate *)locationTimestamp {
+	return self.locationTime;
+}
+
+
 #pragma Properties
 
 -(void)setHeight_:(id)height_
@@ -158,6 +174,21 @@
 -(void)setSecondaryTextColor_:(id)color
 {
 	self.secondaryTextColor = [self colorValue:color];
+}
+
+-(void)setLatitude_:(id)latitude_
+{
+	self.latitude = [TiUtils floatValue:latitude_];
+}
+
+-(void)setLongitude_:(id)longitude_
+{
+	self.longitude = [TiUtils floatValue:longitude_];
+}
+
+-(void)setLocationTime_:(id)locationTime_
+{
+	self.locationTime = [NSDate dateWithTimeIntervalSince1970:[TiUtils floatValue:locationTime_]/1000.0];
 }
 
 #pragma Public APIs

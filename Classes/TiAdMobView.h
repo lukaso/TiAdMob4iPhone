@@ -31,4 +31,8 @@
 @property (nonatomic, retain) NSTimer *refreshTimer; 
 @property (nonatomic, retain) AdMobView* admob; 
 
+@property (nonatomic, assign) double latitude;
+@property (nonatomic, assign) double longitude;
+@property (nonatomic, retain) NSDate* locationTime;
+
 @end
